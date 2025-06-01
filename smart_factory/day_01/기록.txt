@@ -1,4 +1,4 @@
-✅ 5/30 과제 결과 요약
+✅ 과제 결과 요약
 항목
 ✅ Students / Attendance / Classes 테이블 설계 및 생성	
 ✅ ENUM, DATE, FOREIGN KEY 실습	
