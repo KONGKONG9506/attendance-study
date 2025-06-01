@@ -41,3 +41,4 @@ C:\Users\YOUNDEK\Desktop\attendance-study\smart_factory\WinformAttendance\Winfor
 C:\Users\YOUNDEK\Desktop\attendance-study\smart_factory\WinformAttendance\WinformAttendance\obj\Debug\WinformA.3D049C1C.Up2Date
 C:\Users\YOUNDEK\Desktop\attendance-study\smart_factory\WinformAttendance\WinformAttendance\obj\Debug\WinformAttendance.exe
 C:\Users\YOUNDEK\Desktop\attendance-study\smart_factory\WinformAttendance\WinformAttendance\obj\Debug\WinformAttendance.pdb
+C:\Users\YOUNDEK\Desktop\attendance-study\smart_factory\WinformAttendance\WinformAttendance\obj\Debug\WinformAttendance.exe.config

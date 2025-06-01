@@ -33,6 +33,8 @@
             this.combobox학생 = new System.Windows.Forms.ComboBox();
             this.combobox출석상태 = new System.Windows.Forms.ComboBox();
             this.btn출석저장 = new System.Windows.Forms.Button();
+            this.btn출석조회 = new System.Windows.Forms.Button();
+            this.listBox출석목록 = new System.Windows.Forms.ListView();
             this.SuspendLayout();
             // 
             // label1
@@ -80,11 +82,33 @@
             this.btn출석저장.UseVisualStyleBackColor = false;
             this.btn출석저장.Click += new System.EventHandler(this.btn출석저장_Click);
             // 
+            // btn출석조회
+            // 
+            this.btn출석조회.BackColor = System.Drawing.Color.White;
+            this.btn출석조회.Location = new System.Drawing.Point(120, 210);
+            this.btn출석조회.Name = "btn출석조회";
+            this.btn출석조회.Size = new System.Drawing.Size(120, 35);
+            this.btn출석조회.TabIndex = 7;
+            this.btn출석조회.Text = "출석 조회";
+            this.btn출석조회.UseVisualStyleBackColor = false;
+            this.btn출석조회.Click += new System.EventHandler(this.btn출석조회_Click);
+            // 
+            // listBox출석목록
+            // 
+            this.listBox출석목록.HideSelection = false;
+            this.listBox출석목록.Location = new System.Drawing.Point(30, 260);
+            this.listBox출석목록.Name = "listBox출석목록";
+            this.listBox출석목록.Size = new System.Drawing.Size(320, 120);
+            this.listBox출석목록.TabIndex = 8;
+            this.listBox출석목록.UseCompatibleStateImageBehavior = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(382, 253);
+            this.ClientSize = new System.Drawing.Size(382, 403);
+            this.Controls.Add(this.listBox출석목록);
+            this.Controls.Add(this.btn출석조회);
             this.Controls.Add(this.btn출석저장);
             this.Controls.Add(this.combobox출석상태);
             this.Controls.Add(this.combobox학생);
@@ -105,6 +129,8 @@
         private System.Windows.Forms.ComboBox combobox학생;
         private System.Windows.Forms.ComboBox combobox출석상태;
         private System.Windows.Forms.Button btn출석저장;
+        private System.Windows.Forms.Button btn출석조회;
+        private System.Windows.Forms.ListView listBox출석목록;
     }
 }
 
