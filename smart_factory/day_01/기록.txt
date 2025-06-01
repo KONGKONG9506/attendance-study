@@ -1,8 +1,0 @@
-✅ 과제 결과 요약!!
-항목
-✅ Students / Attendance / Classes 테이블 설계 및 생성	
-✅ ENUM, DATE, FOREIGN KEY 실습	
-✅ 샘플 데이터 INSERT (학생 3명, 출석 3건)	
-✅ attendance.sql 생성 및 GitHub 커밋+푸시	
-✅ ERD 다이어그램으로 테이블 관계 확인	
-✅ 개인용 DB 분리 및 스키마 설정	
