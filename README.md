@@ -13,8 +13,6 @@ C# WinForms + MySQL로 만든 출석관리 시스템입니다.
 
 smart-factory
 - WinformAttendance  계속 개발 중인 프로젝트
-- day_01  MySQL 테이블 및 샘플 데이터
-- day_02  WinForms 출석 저장 기능
 
 
 ## 🛠 기술 스택
