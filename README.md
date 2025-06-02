@@ -26,5 +26,6 @@ smart-factory
 - Day 01: MySQL 테이블 설계 및 테스트 데이터
 - Day 02: WinForms로 출석 정보 저장 기능 구현
 - Day 03: 출석 조회 기능 구현
+- Day 04: 출석 데이터 조회 기능 개선
 
 ## 📸 화면 예시
