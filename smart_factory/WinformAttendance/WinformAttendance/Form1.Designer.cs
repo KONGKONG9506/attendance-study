@@ -34,7 +34,12 @@
             this.combobox출석상태 = new System.Windows.Forms.ComboBox();
             this.btn출석저장 = new System.Windows.Forms.Button();
             this.btn출석조회 = new System.Windows.Forms.Button();
-            this.listBox출석목록 = new System.Windows.Forms.ListView();
+            this.btn출석목록 = new System.Windows.Forms.Label();
+            this.btn출석날짜 = new System.Windows.Forms.Label();
+            this.dateTimePicker출석일 = new System.Windows.Forms.DateTimePicker();
+            this.listview출석목록 = new System.Windows.Forms.ListView();
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SuspendLayout();
             // 
             // label1
@@ -74,7 +79,7 @@
             // btn출석저장
             // 
             this.btn출석저장.BackColor = System.Drawing.Color.White;
-            this.btn출석저장.Location = new System.Drawing.Point(120, 150);
+            this.btn출석저장.Location = new System.Drawing.Point(24, 226);
             this.btn출석저장.Name = "btn출석저장";
             this.btn출석저장.Size = new System.Drawing.Size(120, 35);
             this.btn출석저장.TabIndex = 6;
@@ -85,7 +90,7 @@
             // btn출석조회
             // 
             this.btn출석조회.BackColor = System.Drawing.Color.White;
-            this.btn출석조회.Location = new System.Drawing.Point(120, 210);
+            this.btn출석조회.Location = new System.Drawing.Point(24, 282);
             this.btn출석조회.Name = "btn출석조회";
             this.btn출석조회.Size = new System.Drawing.Size(120, 35);
             this.btn출석조회.TabIndex = 7;
@@ -93,21 +98,66 @@
             this.btn출석조회.UseVisualStyleBackColor = false;
             this.btn출석조회.Click += new System.EventHandler(this.btn출석조회_Click);
             // 
-            // listBox출석목록
+            // btn출석목록
             // 
-            this.listBox출석목록.HideSelection = false;
-            this.listBox출석목록.Location = new System.Drawing.Point(30, 260);
-            this.listBox출석목록.Name = "listBox출석목록";
-            this.listBox출석목록.Size = new System.Drawing.Size(320, 120);
-            this.listBox출석목록.TabIndex = 8;
-            this.listBox출석목록.UseCompatibleStateImageBehavior = false;
+            this.btn출석목록.AutoSize = true;
+            this.btn출석목록.Location = new System.Drawing.Point(21, 331);
+            this.btn출석목록.Name = "btn출석목록";
+            this.btn출석목록.Size = new System.Drawing.Size(72, 15);
+            this.btn출석목록.TabIndex = 9;
+            this.btn출석목록.Text = "출석 목록";
+            this.btn출석목록.Click += new System.EventHandler(this.label2_Click);
+            // 
+            // btn출석날짜
+            // 
+            this.btn출석날짜.AutoSize = true;
+            this.btn출석날짜.Location = new System.Drawing.Point(21, 182);
+            this.btn출석날짜.Name = "btn출석날짜";
+            this.btn출석날짜.Size = new System.Drawing.Size(77, 15);
+            this.btn출석날짜.TabIndex = 10;
+            this.btn출석날짜.Text = "출석 날짜:";
+            // 
+            // dateTimePicker출석일
+            // 
+            this.dateTimePicker출석일.Location = new System.Drawing.Point(120, 175);
+            this.dateTimePicker출석일.Name = "dateTimePicker출석일";
+            this.dateTimePicker출석일.Size = new System.Drawing.Size(200, 25);
+            this.dateTimePicker출석일.TabIndex = 11;
+            this.dateTimePicker출석일.Value = new System.DateTime(2025, 6, 2, 19, 43, 38, 0);
+            // 
+            // listview출석목록
+            // 
+            this.listview출석목록.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader1,
+            this.columnHeader2});
+            this.listview출석목록.FullRowSelect = true;
+            this.listview출석목록.HideSelection = false;
+            this.listview출석목록.Location = new System.Drawing.Point(10, 358);
+            this.listview출석목록.Name = "listview출석목록";
+            this.listview출석목록.Size = new System.Drawing.Size(360, 150);
+            this.listview출석목록.TabIndex = 12;
+            this.listview출석목록.UseCompatibleStateImageBehavior = false;
+            this.listview출석목록.View = System.Windows.Forms.View.Details;
+            // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Text = "이름";
+            this.columnHeader1.Width = 150;
+            // 
+            // columnHeader2
+            // 
+            this.columnHeader2.Text = "출석상태";
+            this.columnHeader2.Width = 150;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(382, 403);
-            this.Controls.Add(this.listBox출석목록);
+            this.ClientSize = new System.Drawing.Size(382, 514);
+            this.Controls.Add(this.listview출석목록);
+            this.Controls.Add(this.dateTimePicker출석일);
+            this.Controls.Add(this.btn출석날짜);
+            this.Controls.Add(this.btn출석목록);
             this.Controls.Add(this.btn출석조회);
             this.Controls.Add(this.btn출석저장);
             this.Controls.Add(this.combobox출석상태);
@@ -119,6 +169,7 @@
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -130,7 +181,12 @@
         private System.Windows.Forms.ComboBox combobox출석상태;
         private System.Windows.Forms.Button btn출석저장;
         private System.Windows.Forms.Button btn출석조회;
-        private System.Windows.Forms.ListView listBox출석목록;
+        private System.Windows.Forms.Label btn출석목록;
+        private System.Windows.Forms.Label btn출석날짜;
+        private System.Windows.Forms.DateTimePicker dateTimePicker출석일;
+        private System.Windows.Forms.ListView listview출석목록;
+        private System.Windows.Forms.ColumnHeader columnHeader1;
+        private System.Windows.Forms.ColumnHeader columnHeader2;
     }
 }
 

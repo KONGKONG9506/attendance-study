@@ -69,21 +69,43 @@ namespace WinformAttendance
                 SELECT s.name, a.status
                 FROM attendance a
                 JOIN students s ON a.student_id = s.student_id
-                WHERE a.date = CURDATE()";
+                WHERE a.date = @selectedDate";
+
+                
 
                 MySqlCommand cmd = new MySqlCommand(query, conn);
+                cmd.Parameters.AddWithValue("@selectedDate", dateTimePicker출석일.Value.Date);
                 MySqlDataReader reader = cmd.ExecuteReader();
 
-                listBox출석목록.Items.Clear();
+                listview출석목록.Items.Clear();
 
                 while (reader.Read()) 
-                { 
-                    string line = $"{reader["name"]} - { reader["status"]}";
-                    listBox출석목록.Items.Add(line);
+                {
+                    string name = reader["name"].ToString();
+                    string status = reader["status"].ToString();
+
+                    ListViewItem item = new ListViewItem(name);
+                    item.SubItems.Add(status);
+
+                    if (status == "출석")
+                    {
+                        item.ForeColor = Color.Green;
+                    }
+                    else if (status == "결석")
+                    {
+                        item.ForeColor = Color.Red;
+                    }
+                    listview출석목록.Items.Add(item);
                 }
 
                 reader.Close();
             }
+        }
+
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
