@@ -88,7 +88,7 @@ namespace WinformAttendance
 
                     string name = reader["name"].ToString();
                     string status = reader["status"].ToString();
-                    string date = Convert.ToDateTime(reader["date"]).ToString("yyyy-mm-dd");
+                    string date = Convert.ToDateTime(reader["date"]).ToString("yyyy-MM-dd");
 
                     ListViewItem item = new ListViewItem(name);
                     item.SubItems.Add(status);
