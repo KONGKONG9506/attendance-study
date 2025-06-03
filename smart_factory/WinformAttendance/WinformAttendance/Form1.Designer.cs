@@ -40,6 +40,7 @@
             this.listview출석목록 = new System.Windows.Forms.ListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SuspendLayout();
             // 
             // label1
@@ -129,7 +130,8 @@
             // 
             this.listview출석목록.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader1,
-            this.columnHeader2});
+            this.columnHeader2,
+            this.columnHeader3});
             this.listview출석목록.FullRowSelect = true;
             this.listview출석목록.HideSelection = false;
             this.listview출석목록.Location = new System.Drawing.Point(10, 358);
@@ -142,12 +144,17 @@
             // columnHeader1
             // 
             this.columnHeader1.Text = "이름";
-            this.columnHeader1.Width = 150;
+            this.columnHeader1.Width = 100;
             // 
             // columnHeader2
             // 
             this.columnHeader2.Text = "출석상태";
-            this.columnHeader2.Width = 150;
+            this.columnHeader2.Width = 100;
+            // 
+            // columnHeader3
+            // 
+            this.columnHeader3.Text = "출석일";
+            this.columnHeader3.Width = 156;
             // 
             // Form1
             // 
@@ -187,6 +194,7 @@
         private System.Windows.Forms.ListView listview출석목록;
         private System.Windows.Forms.ColumnHeader columnHeader1;
         private System.Windows.Forms.ColumnHeader columnHeader2;
+        private System.Windows.Forms.ColumnHeader columnHeader3;
     }
 }
 

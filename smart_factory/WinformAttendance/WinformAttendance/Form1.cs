@@ -66,7 +66,7 @@ namespace WinformAttendance
                 conn.Open();
 
                 string query = @"
-                SELECT s.name, a.status
+                SELECT s.name, a.status , a.date
                 FROM attendance a
                 JOIN students s ON a.student_id = s.student_id
                 WHERE a.date = @selectedDate";
@@ -79,13 +79,20 @@ namespace WinformAttendance
 
                 listview출석목록.Items.Clear();
 
+                bool hasRows = false;
+
                 while (reader.Read()) 
                 {
+
+                    hasRows = true;
+
                     string name = reader["name"].ToString();
                     string status = reader["status"].ToString();
+                    string date = Convert.ToDateTime(reader["date"]).ToString("yyyy-mm-dd");
 
                     ListViewItem item = new ListViewItem(name);
                     item.SubItems.Add(status);
+                    item.SubItems.Add(date);
 
                     if (status == "출석")
                     {
@@ -99,6 +106,11 @@ namespace WinformAttendance
                 }
 
                 reader.Close();
+
+                if (!hasRows)
+                {
+                    MessageBox.Show("선택할 날짜에 출석 기록이 없습니다.");
+                }
             }
         }
 
