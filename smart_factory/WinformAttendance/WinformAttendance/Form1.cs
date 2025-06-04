@@ -119,5 +119,55 @@ namespace WinformAttendance
         {
 
         }
+
+        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn출석통계_Click(object sender, EventArgs e)
+        {
+            string connStr = "server=localhost;user=root;password=0000;database=attendance_project;";
+            using (MySqlConnection conn = new MySqlConnection(connStr)) 
+            { 
+                conn.Open();
+
+                string query = @"
+                SELECT s.name,
+                       SUM(CASE WHEN a.status = '출석' THEN 1 ELSE 0 END) AS 출석수,
+                       SUM(CASE WHEN a.status = '지각' THEN 1 ELSE 0 END) AS 지각수,
+                       SUM(CASE WHEN a.status = '결석' THEN 1 ELSE 0 END) AS 결석수,
+                       SUM(CASE WHEN a.status = '조퇴' THEN 1 ELSE 0 END) AS 조퇴수
+                       FROM attendance a
+                       JOIN students s ON a.student_id = s.student_id
+                       GROUP BY s.name";
+
+                MySqlCommand cmd = new MySqlCommand(query, conn);
+                MySqlDataReader reader = cmd.ExecuteReader();
+
+                ListView출석통계.Items.Clear();
+
+                while (reader.Read()) 
+                {
+                    string name = reader["name"].ToString();
+                    string 출석 = reader["출석수"].ToString();
+                    string 지각 = reader["지각수"].ToString();
+                    string 결석 = reader["결석수"].ToString();
+                    string 조퇴 = reader["조퇴수"].ToString();
+
+                    ListViewItem item = new ListViewItem(name);
+                    item.SubItems.Add(출석);
+                    item.SubItems.Add(지각);
+                    item.SubItems.Add(결석);
+                    item.SubItems.Add(조퇴);
+
+                    ListView출석통계.Items.Add(item);
+                }
+                reader.Close();
+            }
+
+           
+
+        }
     }
 }
