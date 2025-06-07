@@ -169,5 +169,68 @@ namespace WinformAttendance
            
 
         }
+
+        private void dateTimePicker2_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn기간통계조회_Click(object sender, EventArgs e)
+        {
+
+            string connstr = "server=localhost;user=root;password=0000;database=attendance_project;";
+            using (MySqlConnection conn = new MySqlConnection(connstr))
+            {
+                conn.Open();
+
+                string query = @"
+                SELECT s.name,
+                       SUM(CASE WHEN a.status ='출석' THEN 1 ELSE 0 END) as 출석수,
+                       SUM(CASE WHEN a.status ='지각' THEN 1 ELSE 0 END) as 지각수,
+                       SUM(CASE WHEN a.status ='결석' THEN 1 ELSE 0 END) as 결석수,
+                       SUM(CASE WHEN a.status ='조퇴' THEN 1 ELSE 0 END) as 조퇴수,
+                       COUNT(*) AS 전체기록수
+                FROM attendance a
+                JOIN students s ON a.student_id = s.student_id
+                WHERE a.date BETWEEN @startDate AND @endDate
+                GROUP BY s.name";
+
+                using (MySqlCommand cmd = new MySqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@startDate", dateTimePicker시작일.Value.Date);
+                    cmd.Parameters.AddWithValue("@endDate", dateTimePicker종료일.Value.Date);
+
+                    using (MySqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            string name = reader["name"].ToString();
+                            int 출석 = Convert.ToInt32(reader["출석수"]);
+                            int 지각 = Convert.ToInt32(reader["지각수"]);
+                            int 결석 = Convert.ToInt32(reader["결석수"]);
+                            int 조퇴 = Convert.ToInt32(reader["조퇴수"]);
+                            int 전체 = Convert.ToInt32(reader["전체기록수"]);
+
+                            double 출석률 = (전체 > 0) ? (출석 / (double)전체) * 100.0 : 0.0;
+                            string 출석률표시 = 출석률.ToString("0.0") + "%";
+
+                            ListViewItem item = new ListViewItem(name);
+                            item.SubItems.Add(출석.ToString());
+                            item.SubItems.Add(지각.ToString());
+                            item.SubItems.Add(결석.ToString());
+                            item.SubItems.Add(조퇴.ToString());
+                            item.SubItems.Add(출석률표시);
+
+                            listView기간통계조회.Items.Add(item);
+                        }
+                    }
+                }
+            }
+        }
     }
 }

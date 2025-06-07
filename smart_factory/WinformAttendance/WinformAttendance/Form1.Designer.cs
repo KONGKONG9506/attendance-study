@@ -44,13 +44,25 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.Btn출석통계 = new System.Windows.Forms.Button();
             this.ListView출석통계 = new System.Windows.Forms.ListView();
             this.ListView이름 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.ListView출석 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.ListView결석 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.ListView지각 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.ListView조퇴 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Btn출석통계 = new System.Windows.Forms.Button();
+            this.dateTimePicker시작일 = new System.Windows.Forms.DateTimePicker();
+            this.dateTimePicker종료일 = new System.Windows.Forms.DateTimePicker();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.btn기간통계조회 = new System.Windows.Forms.Button();
+            this.listView기간통계조회 = new System.Windows.Forms.ListView();
+            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader9 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -211,16 +223,6 @@
             this.tabPage2.Text = "출석통계";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // Btn출석통계
-            // 
-            this.Btn출석통계.Location = new System.Drawing.Point(47, 19);
-            this.Btn출석통계.Name = "Btn출석통계";
-            this.Btn출석통계.Size = new System.Drawing.Size(289, 51);
-            this.Btn출석통계.TabIndex = 0;
-            this.Btn출석통계.Text = "출석 통계";
-            this.Btn출석통계.UseVisualStyleBackColor = true;
-            this.Btn출석통계.Click += new System.EventHandler(this.btn출석통계_Click);
-            // 
             // ListView출석통계
             // 
             this.ListView출석통계.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
@@ -265,11 +267,114 @@
             this.ListView조퇴.Text = "조퇴";
             this.ListView조퇴.Width = 73;
             // 
+            // Btn출석통계
+            // 
+            this.Btn출석통계.Location = new System.Drawing.Point(47, 19);
+            this.Btn출석통계.Name = "Btn출석통계";
+            this.Btn출석통계.Size = new System.Drawing.Size(289, 51);
+            this.Btn출석통계.TabIndex = 0;
+            this.Btn출석통계.Text = "출석 통계";
+            this.Btn출석통계.UseVisualStyleBackColor = true;
+            this.Btn출석통계.Click += new System.EventHandler(this.btn출석통계_Click);
+            // 
+            // dateTimePicker시작일
+            // 
+            this.dateTimePicker시작일.Location = new System.Drawing.Point(425, 66);
+            this.dateTimePicker시작일.Name = "dateTimePicker시작일";
+            this.dateTimePicker시작일.Size = new System.Drawing.Size(339, 25);
+            this.dateTimePicker시작일.TabIndex = 14;
+            this.dateTimePicker시작일.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
+            // 
+            // dateTimePicker종료일
+            // 
+            this.dateTimePicker종료일.Location = new System.Drawing.Point(422, 143);
+            this.dateTimePicker종료일.Name = "dateTimePicker종료일";
+            this.dateTimePicker종료일.Size = new System.Drawing.Size(339, 25);
+            this.dateTimePicker종료일.TabIndex = 15;
+            this.dateTimePicker종료일.ValueChanged += new System.EventHandler(this.dateTimePicker2_ValueChanged);
+            // 
+            // label2
+            // 
+            this.label2.Location = new System.Drawing.Point(422, 28);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(161, 35);
+            this.label2.TabIndex = 16;
+            this.label2.Text = "시작일";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label4
+            // 
+            this.label4.Location = new System.Drawing.Point(422, 105);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(161, 35);
+            this.label4.TabIndex = 17;
+            this.label4.Text = "종료일";
+            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // btn기간통계조회
+            // 
+            this.btn기간통계조회.Location = new System.Drawing.Point(422, 191);
+            this.btn기간통계조회.Name = "btn기간통계조회";
+            this.btn기간통계조회.Size = new System.Drawing.Size(134, 36);
+            this.btn기간통계조회.TabIndex = 18;
+            this.btn기간통계조회.Text = "기간통계조회";
+            this.btn기간통계조회.UseVisualStyleBackColor = true;
+            this.btn기간통계조회.Click += new System.EventHandler(this.btn기간통계조회_Click);
+            // 
+            // listView기간통계조회
+            // 
+            this.listView기간통계조회.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader4,
+            this.columnHeader5,
+            this.columnHeader6,
+            this.columnHeader7,
+            this.columnHeader8,
+            this.columnHeader9});
+            this.listView기간통계조회.FullRowSelect = true;
+            this.listView기간통계조회.GridLines = true;
+            this.listView기간통계조회.HideSelection = false;
+            this.listView기간통계조회.Location = new System.Drawing.Point(422, 242);
+            this.listView기간통계조회.Name = "listView기간통계조회";
+            this.listView기간통계조회.Size = new System.Drawing.Size(353, 273);
+            this.listView기간통계조회.TabIndex = 19;
+            this.listView기간통계조회.UseCompatibleStateImageBehavior = false;
+            this.listView기간통계조회.View = System.Windows.Forms.View.Details;
+            // 
+            // columnHeader4
+            // 
+            this.columnHeader4.Text = "이름";
+            // 
+            // columnHeader5
+            // 
+            this.columnHeader5.Text = "출석";
+            // 
+            // columnHeader6
+            // 
+            this.columnHeader6.Text = "지각";
+            // 
+            // columnHeader7
+            // 
+            this.columnHeader7.Text = "결석";
+            // 
+            // columnHeader8
+            // 
+            this.columnHeader8.Text = "조퇴";
+            // 
+            // columnHeader9
+            // 
+            this.columnHeader9.Text = "출석률";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(405, 527);
+            this.ClientSize = new System.Drawing.Size(783, 527);
+            this.Controls.Add(this.listView기간통계조회);
+            this.Controls.Add(this.btn기간통계조회);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.dateTimePicker종료일);
+            this.Controls.Add(this.dateTimePicker시작일);
             this.Controls.Add(this.tabControl1);
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -308,6 +413,18 @@
         private System.Windows.Forms.Button Btn출석통계;
         private System.Windows.Forms.ColumnHeader ListView결석;
         private System.Windows.Forms.ColumnHeader ListView조퇴;
+        private System.Windows.Forms.DateTimePicker dateTimePicker시작일;
+        private System.Windows.Forms.DateTimePicker dateTimePicker종료일;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Button btn기간통계조회;
+        private System.Windows.Forms.ListView listView기간통계조회;
+        private System.Windows.Forms.ColumnHeader columnHeader4;
+        private System.Windows.Forms.ColumnHeader columnHeader5;
+        private System.Windows.Forms.ColumnHeader columnHeader6;
+        private System.Windows.Forms.ColumnHeader columnHeader7;
+        private System.Windows.Forms.ColumnHeader columnHeader8;
+        private System.Windows.Forms.ColumnHeader columnHeader9;
     }
 }
 
