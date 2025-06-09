@@ -1,0 +1,37 @@
+# -------------------------------
+# ✅ Visual Studio 프로젝트용 .gitignore
+# -------------------------------
+
+# 👉 솔루션 관련 자동 생성 파일
+.vs/
+*.user
+*.suo
+*.cache
+*.vsidx
+
+# 👉 빌드 결과물 (컴파일 결과)
+bin/
+obj/
+*.exe
+*.dll
+*.pdb
+
+# 👉 데이터베이스 임시 파일
+*.db
+*.db-shm
+*.db-wal
+
+# 👉 설정 파일들 (개인 PC마다 다를 수 있음)
+appsettings.*
+launchSettings.json
+
+# 👉 Git 자체 파일 백업 (optional)
+*.log
+*.tmp
+*.bak
+
+# 👉 OS 및 에디터 관련
+Thumbs.db
+.DS_Store
+*.swp
+*.sln.ide
