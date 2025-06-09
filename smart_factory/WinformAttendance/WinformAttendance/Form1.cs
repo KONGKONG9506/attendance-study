@@ -182,7 +182,7 @@ namespace WinformAttendance
 
         private void btn기간통계조회_Click(object sender, EventArgs e)
         {
-
+            listView기간통계조회.Items.Clear();
             string connstr = "server=localhost;user=root;password=0000;database=attendance_project;";
             using (MySqlConnection conn = new MySqlConnection(connstr))
             {
@@ -226,8 +226,26 @@ namespace WinformAttendance
                             item.SubItems.Add(조퇴.ToString());
                             item.SubItems.Add(출석률표시);
 
-                            listView기간통계조회.Items.Add(item);
+                            if (출석률 >= 90)
+                                item.ForeColor = Color.Green;
+                            else if (출석률 >= 75)
+                                item.ForeColor = Color.Orange;
+                            else
+                                item.ForeColor = Color.Red;
+
+                                listView기간통계조회.Items.Add(item);
                         }
+
+                        List<ListViewItem> items = listView기간통계조회.Items.Cast<ListViewItem>().ToList();
+
+                        var sorted = items.OrderByDescending(item =>
+                        {
+                            string rateText = item.SubItems[5].Text.Replace("%", "");
+                            return double.Parse(rateText);
+                        }).ToList();
+
+                        listView기간통계조회.Items.Clear();
+                        listView기간통계조회.Items.AddRange(sorted.ToArray());
                     }
                 }
             }
