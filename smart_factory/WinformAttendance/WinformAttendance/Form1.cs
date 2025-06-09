@@ -127,47 +127,7 @@ namespace WinformAttendance
 
         private void btn출석통계_Click(object sender, EventArgs e)
         {
-            string connStr = "server=localhost;user=root;password=0000;database=attendance_project;";
-            using (MySqlConnection conn = new MySqlConnection(connStr)) 
-            { 
-                conn.Open();
-
-                string query = @"
-                SELECT s.name,
-                       SUM(CASE WHEN a.status = '출석' THEN 1 ELSE 0 END) AS 출석수,
-                       SUM(CASE WHEN a.status = '지각' THEN 1 ELSE 0 END) AS 지각수,
-                       SUM(CASE WHEN a.status = '결석' THEN 1 ELSE 0 END) AS 결석수,
-                       SUM(CASE WHEN a.status = '조퇴' THEN 1 ELSE 0 END) AS 조퇴수
-                       FROM attendance a
-                       JOIN students s ON a.student_id = s.student_id
-                       GROUP BY s.name";
-
-                MySqlCommand cmd = new MySqlCommand(query, conn);
-                MySqlDataReader reader = cmd.ExecuteReader();
-
-                ListView출석통계.Items.Clear();
-
-                while (reader.Read()) 
-                {
-                    string name = reader["name"].ToString();
-                    string 출석 = reader["출석수"].ToString();
-                    string 지각 = reader["지각수"].ToString();
-                    string 결석 = reader["결석수"].ToString();
-                    string 조퇴 = reader["조퇴수"].ToString();
-
-                    ListViewItem item = new ListViewItem(name);
-                    item.SubItems.Add(출석);
-                    item.SubItems.Add(지각);
-                    item.SubItems.Add(결석);
-                    item.SubItems.Add(조퇴);
-
-                    ListView출석통계.Items.Add(item);
-                }
-                reader.Close();
-            }
-
-           
-
+            
         }
 
         private void dateTimePicker2_ValueChanged(object sender, EventArgs e)
@@ -182,7 +142,7 @@ namespace WinformAttendance
 
         private void btn기간통계조회_Click(object sender, EventArgs e)
         {
-            listView기간통계조회.Items.Clear();
+            dataGridView기간통계.Rows.Clear();
             string connstr = "server=localhost;user=root;password=0000;database=attendance_project;";
             using (MySqlConnection conn = new MySqlConnection(connstr))
             {
@@ -219,36 +179,49 @@ namespace WinformAttendance
                             double 출석률 = (전체 > 0) ? (출석 / (double)전체) * 100.0 : 0.0;
                             string 출석률표시 = 출석률.ToString("0.0") + "%";
 
-                            ListViewItem item = new ListViewItem(name);
-                            item.SubItems.Add(출석.ToString());
-                            item.SubItems.Add(지각.ToString());
-                            item.SubItems.Add(결석.ToString());
-                            item.SubItems.Add(조퇴.ToString());
-                            item.SubItems.Add(출석률표시);
+                            //ListViewItem item = new ListViewItem(name);
+                            //item.SubItems.Add(출석.ToString());
+                            //item.SubItems.Add(지각.ToString());
+                            //item.SubItems.Add(결석.ToString());
+                            //item.SubItems.Add(조퇴.ToString());
+                            //item.SubItems.Add(출석률표시);
+
+                            int rowIndex = dataGridView기간통계.Rows.Add(name, 출석, 지각, 결석, 조퇴, 출석률표시);
 
                             if (출석률 >= 90)
-                                item.ForeColor = Color.Green;
+                                dataGridView기간통계.Rows[rowIndex].DefaultCellStyle.ForeColor = Color.Green;
                             else if (출석률 >= 75)
-                                item.ForeColor = Color.Orange;
+                                dataGridView기간통계.Rows[rowIndex].DefaultCellStyle.ForeColor = Color.Orange;
                             else
-                                item.ForeColor = Color.Red;
+                                dataGridView기간통계.Rows[rowIndex].DefaultCellStyle.ForeColor = Color.Red;
 
-                                listView기간통계조회.Items.Add(item);
                         }
 
-                        List<ListViewItem> items = listView기간통계조회.Items.Cast<ListViewItem>().ToList();
+                        //List<ListViewItem> items = listView기간통계조회.Items.Cast<ListViewItem>().ToList();
 
-                        var sorted = items.OrderByDescending(item =>
-                        {
-                            string rateText = item.SubItems[5].Text.Replace("%", "");
-                            return double.Parse(rateText);
-                        }).ToList();
+                        //var sorted = items.OrderByDescending(item =>
+                        //{
+                        //    string rateText = item.SubItems[5].Text.Replace("%", "");
+                        //    return double.Parse(rateText);
+                        //}).ToList();
 
-                        listView기간통계조회.Items.Clear();
-                        listView기간통계조회.Items.AddRange(sorted.ToArray());
+                        //listView기간통계조회.Items.Clear();
+                        //listView기간통계조회.Items.AddRange(sorted.ToArray());
+
+                        dataGridView기간통계.Sort(dataGridView기간통계.Columns["ColRate"], ListSortDirection.Descending);
                     }
                 }
             }
+        }
+
+        private void tabPage2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dataGridView기간통계_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }
