@@ -38,18 +38,13 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.btn기간통계조회 = new System.Windows.Forms.Button();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.dateTimePicker종료일 = new System.Windows.Forms.DateTimePicker();
-            this.dateTimePicker시작일 = new System.Windows.Forms.DateTimePicker();
             this.listview출석목록 = new System.Windows.Forms.ListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.btn출석목록 = new System.Windows.Forms.Label();
             this.btn출석조회 = new System.Windows.Forms.Button();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
             this.dataGridView기간통계 = new System.Windows.Forms.DataGridView();
             this.ColName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColAttend = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -57,6 +52,12 @@
             this.ColAbsent = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColLeave = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColRate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btn기간통계조회 = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.dateTimePicker종료일 = new System.Windows.Forms.DateTimePicker();
+            this.dateTimePicker시작일 = new System.Windows.Forms.DateTimePicker();
+            this.button1 = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -173,65 +174,6 @@
             this.tabPage2.UseVisualStyleBackColor = true;
             this.tabPage2.Click += new System.EventHandler(this.tabPage2_Click);
             // 
-            // tabPage3
-            // 
-            this.tabPage3.Controls.Add(this.dataGridView기간통계);
-            this.tabPage3.Controls.Add(this.btn기간통계조회);
-            this.tabPage3.Controls.Add(this.label4);
-            this.tabPage3.Controls.Add(this.label2);
-            this.tabPage3.Controls.Add(this.dateTimePicker종료일);
-            this.tabPage3.Controls.Add(this.dateTimePicker시작일);
-            this.tabPage3.Location = new System.Drawing.Point(4, 25);
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(444, 501);
-            this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "출석통계";
-            this.tabPage3.UseVisualStyleBackColor = true;
-            // 
-            // btn기간통계조회
-            // 
-            this.btn기간통계조회.Font = new System.Drawing.Font("맑은 고딕", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.btn기간통계조회.Location = new System.Drawing.Point(156, 127);
-            this.btn기간통계조회.Name = "btn기간통계조회";
-            this.btn기간통계조회.Size = new System.Drawing.Size(134, 36);
-            this.btn기간통계조회.TabIndex = 30;
-            this.btn기간통계조회.Text = "기간통계조회";
-            this.btn기간통계조회.UseVisualStyleBackColor = true;
-            // 
-            // label4
-            // 
-            this.label4.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label4.Location = new System.Drawing.Point(6, 79);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(77, 35);
-            this.label4.TabIndex = 29;
-            this.label4.Text = "종료일";
-            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // label2
-            // 
-            this.label2.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label2.Location = new System.Drawing.Point(6, 12);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(72, 35);
-            this.label2.TabIndex = 28;
-            this.label2.Text = "시작일";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // dateTimePicker종료일
-            // 
-            this.dateTimePicker종료일.Location = new System.Drawing.Point(84, 85);
-            this.dateTimePicker종료일.Name = "dateTimePicker종료일";
-            this.dateTimePicker종료일.Size = new System.Drawing.Size(306, 25);
-            this.dateTimePicker종료일.TabIndex = 27;
-            // 
-            // dateTimePicker시작일
-            // 
-            this.dateTimePicker시작일.Location = new System.Drawing.Point(84, 18);
-            this.dateTimePicker시작일.Name = "dateTimePicker시작일";
-            this.dateTimePicker시작일.Size = new System.Drawing.Size(306, 25);
-            this.dateTimePicker시작일.TabIndex = 26;
-            // 
             // listview출석목록
             // 
             this.listview출석목록.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
@@ -282,6 +224,22 @@
             this.btn출석조회.TabIndex = 13;
             this.btn출석조회.Text = "출석 조회";
             this.btn출석조회.UseVisualStyleBackColor = false;
+            // 
+            // tabPage3
+            // 
+            this.tabPage3.Controls.Add(this.button1);
+            this.tabPage3.Controls.Add(this.dataGridView기간통계);
+            this.tabPage3.Controls.Add(this.btn기간통계조회);
+            this.tabPage3.Controls.Add(this.label4);
+            this.tabPage3.Controls.Add(this.label2);
+            this.tabPage3.Controls.Add(this.dateTimePicker종료일);
+            this.tabPage3.Controls.Add(this.dateTimePicker시작일);
+            this.tabPage3.Location = new System.Drawing.Point(4, 25);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Size = new System.Drawing.Size(444, 501);
+            this.tabPage3.TabIndex = 2;
+            this.tabPage3.Text = "출석통계";
+            this.tabPage3.UseVisualStyleBackColor = true;
             // 
             // dataGridView기간통계
             // 
@@ -343,6 +301,61 @@
             this.ColRate.Name = "ColRate";
             this.ColRate.Width = 70;
             // 
+            // btn기간통계조회
+            // 
+            this.btn기간통계조회.Font = new System.Drawing.Font("맑은 고딕", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.btn기간통계조회.Location = new System.Drawing.Point(11, 126);
+            this.btn기간통계조회.Name = "btn기간통계조회";
+            this.btn기간통계조회.Size = new System.Drawing.Size(134, 36);
+            this.btn기간통계조회.TabIndex = 30;
+            this.btn기간통계조회.Text = "기간통계조회";
+            this.btn기간통계조회.UseVisualStyleBackColor = true;
+            // 
+            // label4
+            // 
+            this.label4.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label4.Location = new System.Drawing.Point(6, 79);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(77, 35);
+            this.label4.TabIndex = 29;
+            this.label4.Text = "종료일";
+            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label2
+            // 
+            this.label2.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label2.Location = new System.Drawing.Point(6, 12);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(72, 35);
+            this.label2.TabIndex = 28;
+            this.label2.Text = "시작일";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // dateTimePicker종료일
+            // 
+            this.dateTimePicker종료일.Location = new System.Drawing.Point(84, 85);
+            this.dateTimePicker종료일.Name = "dateTimePicker종료일";
+            this.dateTimePicker종료일.Size = new System.Drawing.Size(306, 25);
+            this.dateTimePicker종료일.TabIndex = 27;
+            // 
+            // dateTimePicker시작일
+            // 
+            this.dateTimePicker시작일.Location = new System.Drawing.Point(84, 18);
+            this.dateTimePicker시작일.Name = "dateTimePicker시작일";
+            this.dateTimePicker시작일.Size = new System.Drawing.Size(306, 25);
+            this.dateTimePicker시작일.TabIndex = 26;
+            // 
+            // button1
+            // 
+            this.button1.Font = new System.Drawing.Font("맑은 고딕", 10.2F);
+            this.button1.Location = new System.Drawing.Point(339, 126);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(99, 35);
+            this.button1.TabIndex = 32;
+            this.button1.Text = "CSV저장";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
@@ -395,6 +408,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ColAbsent;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColLeave;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColRate;
+        private System.Windows.Forms.Button button1;
     }
 }
 

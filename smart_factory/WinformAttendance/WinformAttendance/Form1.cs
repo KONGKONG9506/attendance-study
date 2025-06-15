@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -222,6 +223,34 @@ namespace WinformAttendance
         private void dataGridView기간통계_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.Filter = "CSV 파일|*.csv";
+            saveFileDialog.Title = "출석 통계 CSV 저장";
+
+            if (saveFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                using (StreamWriter sw = new StreamWriter(saveFileDialog.FileName, false, Encoding.UTF8))
+                {
+                    // 헤더
+                    var headers = dataGridView기간통계.Columns.Cast<DataGridViewColumn>();
+                    sw.WriteLine(string.Join(",", headers.Select(col => col.HeaderText)));
+
+                    // 데이터
+                    foreach (DataGridViewRow row in dataGridView기간통계.Rows)
+                    {
+                        if(!row.IsNewRow)
+                        {
+                            var cells = row.Cells.Cast<DataGridViewCell>().Select(cell => cell.Value?.ToString());
+                            sw.WriteLine(string.Join(",", cells));
+                        }
+                    }
+                }
+                MessageBox.Show("CSV 저장 완료!");
+            }
         }
     }
 }
