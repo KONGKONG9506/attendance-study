@@ -86,3 +86,4 @@ C:\Users\YOUNDEK\OneDrive\바탕 화면\attendance-study\attendance-study\smart_
 C:\Users\YOUNDEK\OneDrive\바탕 화면\attendance-study\attendance-study\smart_factory\WinformAttendance\WinformAttendance\obj\Debug\WinformA.3D049C1C.Up2Date
 C:\Users\YOUNDEK\OneDrive\바탕 화면\attendance-study\attendance-study\smart_factory\WinformAttendance\WinformAttendance\obj\Debug\WinformAttendance.exe
 C:\Users\YOUNDEK\OneDrive\바탕 화면\attendance-study\attendance-study\smart_factory\WinformAttendance\WinformAttendance\obj\Debug\WinformAttendance.pdb
+C:\Users\YOUNDEK\OneDrive\바탕 화면\attendance-study\attendance-study\smart_factory\WinformAttendance\WinformAttendance\obj\Debug\WinformAttendance.FormLogin.resources

@@ -45,6 +45,7 @@
             this.btn출석목록 = new System.Windows.Forms.Label();
             this.btn출석조회 = new System.Windows.Forms.Button();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.button1 = new System.Windows.Forms.Button();
             this.dataGridView기간통계 = new System.Windows.Forms.DataGridView();
             this.ColName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColAttend = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -57,7 +58,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.dateTimePicker종료일 = new System.Windows.Forms.DateTimePicker();
             this.dateTimePicker시작일 = new System.Windows.Forms.DateTimePicker();
-            this.button1 = new System.Windows.Forms.Button();
+            this.dateTimePicker출석조회일 = new System.Windows.Forms.DateTimePicker();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -162,6 +163,7 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.dateTimePicker출석조회일);
             this.tabPage2.Controls.Add(this.listview출석목록);
             this.tabPage2.Controls.Add(this.btn출석목록);
             this.tabPage2.Controls.Add(this.btn출석조회);
@@ -172,7 +174,6 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "출석조회";
             this.tabPage2.UseVisualStyleBackColor = true;
-            this.tabPage2.Click += new System.EventHandler(this.tabPage2_Click);
             // 
             // listview출석목록
             // 
@@ -218,12 +219,13 @@
             // 
             this.btn출석조회.BackColor = System.Drawing.Color.White;
             this.btn출석조회.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.btn출석조회.Location = new System.Drawing.Point(150, 418);
+            this.btn출석조회.Location = new System.Drawing.Point(28, 388);
             this.btn출석조회.Name = "btn출석조회";
-            this.btn출석조회.Size = new System.Drawing.Size(143, 69);
+            this.btn출석조회.Size = new System.Drawing.Size(143, 43);
             this.btn출석조회.TabIndex = 13;
             this.btn출석조회.Text = "출석 조회";
             this.btn출석조회.UseVisualStyleBackColor = false;
+            this.btn출석조회.Click += new System.EventHandler(this.btn출석조회_Click);
             // 
             // tabPage3
             // 
@@ -241,6 +243,17 @@
             this.tabPage3.Text = "출석통계";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
+            // button1
+            // 
+            this.button1.Font = new System.Drawing.Font("맑은 고딕", 10.2F);
+            this.button1.Location = new System.Drawing.Point(339, 126);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(99, 35);
+            this.button1.TabIndex = 32;
+            this.button1.Text = "CSV저장";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // dataGridView기간통계
             // 
             this.dataGridView기간통계.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -257,7 +270,6 @@
             this.dataGridView기간통계.RowTemplate.Height = 27;
             this.dataGridView기간통계.Size = new System.Drawing.Size(427, 308);
             this.dataGridView기간통계.TabIndex = 31;
-            this.dataGridView기간통계.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView기간통계_CellContentClick);
             // 
             // ColName
             // 
@@ -310,6 +322,7 @@
             this.btn기간통계조회.TabIndex = 30;
             this.btn기간통계조회.Text = "기간통계조회";
             this.btn기간통계조회.UseVisualStyleBackColor = true;
+            this.btn기간통계조회.Click += new System.EventHandler(this.btn기간통계조회_Click);
             // 
             // label4
             // 
@@ -345,16 +358,13 @@
             this.dateTimePicker시작일.Size = new System.Drawing.Size(306, 25);
             this.dateTimePicker시작일.TabIndex = 26;
             // 
-            // button1
+            // dateTimePicker출석조회일
             // 
-            this.button1.Font = new System.Drawing.Font("맑은 고딕", 10.2F);
-            this.button1.Location = new System.Drawing.Point(339, 126);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(99, 35);
-            this.button1.TabIndex = 32;
-            this.button1.Text = "CSV저장";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.dateTimePicker출석조회일.Location = new System.Drawing.Point(177, 398);
+            this.dateTimePicker출석조회일.Name = "dateTimePicker출석조회일";
+            this.dateTimePicker출석조회일.Size = new System.Drawing.Size(261, 25);
+            this.dateTimePicker출석조회일.TabIndex = 16;
+            this.dateTimePicker출석조회일.Value = new System.DateTime(2025, 6, 2, 19, 43, 38, 0);
             // 
             // Form1
             // 
@@ -409,6 +419,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ColLeave;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColRate;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.DateTimePicker dateTimePicker출석조회일;
     }
 }
 

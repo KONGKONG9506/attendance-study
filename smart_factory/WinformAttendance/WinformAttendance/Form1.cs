@@ -14,13 +14,33 @@ namespace WinformAttendance
 {
     public partial class Form1 : Form
     {
+        private string currentUser;
+        private string currentRole;
+
+        private void Form1_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
+        }
+        public Form1(string username, string role)
+        {
+            InitializeComponent();
+            currentUser = username;
+            currentRole = role;
+
+            this.FormClosed += Form1_FormClosed;
+        }
         public Form1()
         {
             InitializeComponent();
         }
 
         private void Form1_Load(object sender, EventArgs e)
-        {
+        {   
+            // 권한에 따라 UI 조정
+            if (currentRole == "student")
+            {
+                tabControl1.TabPages.Remove(tabPage3);
+            }
             string connStr = "server=localhost;user=root;password=0000;database=attendance_project;";
             using (MySqlConnection conn = new MySqlConnection(connStr))
             {
@@ -75,7 +95,8 @@ namespace WinformAttendance
                 
 
                 MySqlCommand cmd = new MySqlCommand(query, conn);
-                cmd.Parameters.AddWithValue("@selectedDate", dateTimePicker출석일.Value.Date);
+                cmd.Parameters.AddWithValue("@selectedDate", dateTimePicker출석조회일.Value.Date);
+                
                 MySqlDataReader reader = cmd.ExecuteReader();
 
                 listview출석목록.Items.Clear();
@@ -114,33 +135,6 @@ namespace WinformAttendance
                 }
             }
         }
-
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btn출석통계_Click(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void dateTimePicker2_ValueChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void btn기간통계조회_Click(object sender, EventArgs e)
         {
             dataGridView기간통계.Rows.Clear();
@@ -214,17 +208,6 @@ namespace WinformAttendance
                 }
             }
         }
-
-        private void tabPage2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void dataGridView기간통계_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
         private void button1_Click(object sender, EventArgs e)
         {
             SaveFileDialog saveFileDialog = new SaveFileDialog();
@@ -252,5 +235,6 @@ namespace WinformAttendance
                 MessageBox.Show("CSV 저장 완료!");
             }
         }
+
     }
 }
